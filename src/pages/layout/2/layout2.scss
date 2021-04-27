@@ -1,0 +1,93 @@
+.layout2 {
+  .container {
+    width: 1200px;
+    &>div {
+      display: flex;
+      align-items: center;
+      width: 570px;
+      height: 500px;
+    }
+    .be-center {
+      float: left;
+      overflow-x: auto;
+      &::-webkit-scrollbar {
+        height: 6px;
+        cursor: pointer;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: yellowgreen;
+      }
+      .type {
+        flex: 0 0 auto;
+        margin-right: 30px;
+        .center {
+          width: 200px;
+          height: 200px;
+          background-color: rgb(74, 236, 236);
+          .child {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(240, 64, 137);
+          }
+        }
+        .center1 {
+          text-align: center; // 水平居中
+          line-height: 200px;
+          .child {
+            display: inline-block; // 设置为行内元素
+            vertical-align: middle; // 垂直居中
+          }
+        }
+        .center2 {
+          display: table-cell;
+          vertical-align: middle;
+          .child {
+            margin: 0 auto;
+          }
+        }
+        .center3 {
+          position: relative;
+          .child {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -25px 0 0 -25px;
+          }
+        }
+        .center4 {
+          position: relative;
+          .child {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+        .center5 {
+          display: flex;
+          .child {
+            margin: auto;
+          }
+        }
+      }
+    }
+    .warping {
+      justify-content: center;
+      float: right;
+      .text-warping {
+        width: 400px;
+        height: 300px;
+        font-size: 20px;
+        color: #f0f;
+        word-break: break-all;
+        line-height: 18px;
+        img {
+          float: left;
+          margin: 10px;
+          width: 250px;
+          height: 165px;
+        }
+      }
+    }
+  }
+}

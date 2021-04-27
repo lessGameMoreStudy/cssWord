@@ -1,0 +1,14 @@
+::-webkit-scrollbar {
+  width: 8px;
+  // height: 60px;
+}
+::-webkit-scrollbar-track {
+  background-color: aquamarine;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: crimson;
+}
+#root {
+  min-height: 100vh;
+}

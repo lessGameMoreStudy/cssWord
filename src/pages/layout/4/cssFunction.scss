@@ -1,0 +1,158 @@
+.css-func {
+  .container {
+    display: flex;
+    margin-top: calc((100vh - 420px) / 2);
+    width: 1200px;
+    .left, .right, .center {
+      flex: 1;
+      height: 400px;
+      div:nth-child(1) {
+        height: 370px;
+      }
+    }
+    .left {
+      .hover {
+        line-height: 370px;
+      }
+      .hover-tips {
+        display: inline-block;
+        position: relative;
+        padding: 0 20px;
+        border-radius: 10px;
+        height: 40px;
+        background-color: #66f;
+        cursor: pointer;
+        line-height: 40px;
+        color: #fff;
+        &::after {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 6px;
+          background-color: rgba(#000, .5);
+          opacity: 0;
+          text-align: center;
+          font-size: 14px;
+          content: attr(data-name);
+          transition: all .3s;
+        }
+        &:hover::after {
+          left: calc(100% + 15px);
+          opacity: 1;
+        }
+      }
+    }
+    .center {
+      .counter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        ul {
+          counter-reset: index 0 player 0 wight 0;
+        }
+        li {
+          display: flex;
+          position: relative;
+          align-items: center;
+          margin-top: 10px;
+          counter-increment: index 1;
+          &::before {
+            content: counter(index)"、";
+          }
+        }
+        input {
+          overflow: hidden;
+          position: absolute;
+          width: 0;
+          height: 0;
+          opacity: 0;
+          &:checked + label::before {
+            color: #3c9;
+            content: "\2713";
+          }
+        }
+        label {
+          display: flex;
+          align-items: center;
+          height: 20px;
+          &::before {
+            margin-right: 5px;
+            border: 1px solid #3c9;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            line-height: 20px;
+            text-align: center;
+            color: transparent;
+            content: "";
+            transition: all 300ms;
+          }
+        }
+        p {
+          margin-top: 10px;
+          &.player::after {
+            content: counter(player) attr(data-unit);
+          }
+          &.wight::after {
+            content: counter(wight) attr(data-unit);
+          }
+        }
+        #kobe:checked {
+          counter-increment: wight 30 player 1;
+        }
+        #jordan:checked {
+          counter-increment: wight 50 player 1;
+        }
+        #wade:checked {
+          counter-increment: wight 20 player 1;
+        }
+      }
+    }
+    .right {
+      .figure {
+        display: flex;
+        flex-wrap: wrap;
+        height: 370px;
+        li {
+          width: 100px;
+          height: 100px;
+          &.star {
+            background-color: #3c9;
+            clip-path: polygon(0% 35%, 40% 35%, 50% 0%, 60% 35%, 100% 35%, 67% 55%, 81% 100%, 50% 71%, 19% 100%, 33% 55%);
+          }
+          &.ellipse {
+            background-color: #c39;
+            clip-path: ellipse(40% 49% at 50% 50%);   // 参数解析：at前是椭圆的x轴半径与y轴半径，at后是圆心的坐标
+          }
+          &.cricle {
+            background-color: #9c3;
+            clip-path: circle(50% at 50% 50%);       // 参数解析：at前是圆的半径，at后是圆心的坐标
+          }
+          &.traingle {
+            background-color: #c93;
+            clip-path: polygon(0 100%, 50% 0, 100% 100%);
+          }
+          &.rhombus {
+            background-color: #93c;
+            clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+          }
+          &.message {
+            background-color: #39c;
+            clip-path: polygon(10% 10%, 95% 10%, 95% 75%, 75% 75%, 65% 100%, 58% 75%, 10% 75%);
+          }
+          &.left-arrow {
+            background-color: #918;
+            clip-path: polygon(0 50%, 40% 0%, 40% 30%, 95% 30%, 95% 70%, 40% 70%, 40% 100%);
+          }
+          &.right-arrow {
+            background-color: #198;
+            clip-path: polygon(5% 30%, 60% 30%, 60% 0, 100% 50%, 60% 100%, 60% 70%, 5% 70%);
+          }
+        }
+      }
+    }
+  }
+}
